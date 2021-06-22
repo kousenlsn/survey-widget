@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 
-import { Dialog, theme } from "../components";
+import { Dialog, surveyTheme } from "../components";
 import { DetailsStep, FavoritesStep, IdentityStep, SummaryStep } from "./steps";
 import {
   StepsContainer,
@@ -22,7 +22,7 @@ export const Survey: FC<SurveyProps> = ({
   onNextCb,
   initialData,
 }) => {
-  const [show, setShow] = useState<boolean>(true);
+  const [showDialog, setDialogShow] = useState<boolean>(true);
 
   const initialStep =
     (!initialData && 1) ||
@@ -31,19 +31,19 @@ export const Survey: FC<SurveyProps> = ({
     4;
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={surveyTheme}>
       <StepsContainerProvider<SurveyData>
         initialData={initialData}
         initialStep={initialStep}
-        onFinishCb={(d) => {
-          onFinishCb && onFinishCb(d);
-          setShow(false);
+        onFinishCb={(data) => {
+          onFinishCb && onFinishCb(data);
+          setDialogShow(false);
         }}
-        onNextCb={(d) => {
-          onNextCb && onNextCb(d);
+        onNextCb={(data) => {
+          onNextCb && onNextCb(data);
         }}
       >
-        <Dialog delay={delay} show={show}>
+        <Dialog delay={delay} show={showDialog}>
           <StepsContainer>
             <IdentityStep />
             <DetailsStep />

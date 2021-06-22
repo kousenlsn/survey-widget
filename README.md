@@ -1,5 +1,5 @@
 ## survey-widget
-*Lightweight simple (predefined) survey pop-up component as a widget / lib.*
+*Lightweight and simple (predefined) survey pop-up component as a widget / lib.*
 
 ### Motivation :running:
 
@@ -8,10 +8,10 @@
 ### Features :mag_right:
 
 - Add as a single script to any html page;
-- Add custom callback events between the survey step to do anything with the selected data;
+- Add custom callback events between the survey steps to do anything with the selected data;
 - "Continue where you stopped" feature based on initial data.
 
-### Run :construction_worker:
+### Build :construction_worker:
 
 ##### Building as a widget:
 1. ``npm install`` 
@@ -22,6 +22,8 @@
 1. ``npm install``
 2. ``npm build:es``
 3. Use results at ./dist/es/
+
+### Use :electric_plug:
 
 ##### Use as a widget:
 1. Add to any ``.html`` file inside a ``<script>`` tag:
@@ -38,18 +40,31 @@
     </script>
   ```
 
-##### Sample - there is a sample .html file at the project that can be ran by:
+##### Sample - there is a sample .html file in the project that can be ran by:
 1. [Building as a widget](#building-as-a-widget);
 2. ``npx serve``
+
+##### Use as a lib:
+1. [Building as a lib](#building-as-a-lib-esm-module) (not published);
+2. Import at your project
+  ```
+    import { Survey } from 'path/to/lib';
+
+    ...
+
+    <Survey
+      {...surveyProps}
+    />
+  ```
 
 ### Options :flags:
 
 |Opt|Default|Description|
 |---|---|---|
-| delay: *number* | 2000ms | Time before showing the survey. |
-| onNextCb: *onNextCb?: (data: SurveyData) => void* | Store data at localStorage | Callback on every press of next step.  |
-| onNextCb: *onFinishCb?: (data: SurveyData) => void* | Store "completed" at localStorage | Callback after pressing finish. |
-| initialData: *SurveyData* | Reads from local storage | initial data to be shown at the form, and which defines the current step |
+| delay: *number* | 2000ms | Time before displaying the survey. |
+| onNextCb: *onNextCb?: (data: SurveyData) => void* | Store the survey data in the **localStorage** | Callback on every press of next step.  |
+| onNextCb: *onFinishCb?: (data: SurveyData) => void* | Store "is completed" in the **localStorage** | Callback after pressing finish. |
+| initialData: *SurveyData* | Reads from **localStorage** | initial data to be shown at the form, and which defines the current step. |
 
 SurveyData:
 ```
@@ -66,7 +81,6 @@ SurveyData:
 
 ### Composition :hammer:
 
-##### Core
 - React
 - Typescript
 - [React-hook-form](https://react-hook-form.com/)

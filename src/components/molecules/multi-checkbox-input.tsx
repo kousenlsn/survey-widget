@@ -19,7 +19,7 @@ interface MultiCheckboxInputProps {
 export const MultiCheckboxInput = forwardRef<any, MultiCheckboxInputProps>(
   ({ opts, name, control, rules }, ref) => {
     const {
-      field: { onChange, value: inputValue, ...inputProps },
+      field: { onChange, value: inputValue = [], ...inputProps },
     } = useController({
       name,
       control,
@@ -42,7 +42,7 @@ export const MultiCheckboxInput = forwardRef<any, MultiCheckboxInputProps>(
               {...inputProps}
               value={value}
               onChange={onCheckboxChange}
-              defaultChecked={inputValue.indexOf(value) >= 0}
+              defaultChecked={inputValue?.indexOf(value) >= 0}
             />
             {label || value}
           </Label>

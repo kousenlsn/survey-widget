@@ -26,7 +26,7 @@ export const surveyWidget = (el?: HTMLElement, config: SurveyProps = {}) => {
     document.body.appendChild(div);
   }
 
-  let nextConfig: SurveyProps = {
+  const nextConfig: SurveyProps = {
     initialData: config.initialData || getInitialData(),
     onFinishCb: config.onFinishCb || defaultOnFinishCb,
     onNextCb: config.onNextCb || defaultOnNextCb,
