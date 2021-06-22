@@ -64,7 +64,7 @@
 | delay: *number* | 2000ms | Time before displaying the survey. |
 | onNextCb: *onNextCb?: (data: SurveyData) => void* | Store the survey data in the **localStorage** | Callback on every press of next step.  |
 | onNextCb: *onFinishCb?: (data: SurveyData) => void* | Store "is completed" in the **localStorage** | Callback after pressing finish. |
-| initialData: *SurveyData* | Reads from **localStorage** | initial data to be shown at the form, and which defines the current step. |
+| initialData: *SurveyData* | Reads from **localStorage** | initial data to pre fill the form, and which defines the initial step shown. |
 
 SurveyData:
 ```
